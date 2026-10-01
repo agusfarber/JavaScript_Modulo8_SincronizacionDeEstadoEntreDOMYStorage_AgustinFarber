@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Promedio de Notas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,620;9..144,700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <main class="pagina">
+      <header class="encabezado">
+        <p class="etiqueta">Pre-entrega 8 · DOM y storage</p>
+        <h1>Simulador de promedio de notas</h1>
+        <p class="bajada">
+          Agregá alumnos, cargá notas y filtrá el listado. Si recargás la
+          página, los datos siguen en pantalla.
+        </p>
+        <p id="materias" class="materias"></p>
+      </header>
+
+      <section class="panel" aria-labelledby="titulo-alta">
+        <h2 id="titulo-alta">Agregar alumno</h2>
+        <div class="formulario" id="formulario-alumno">
+          <label>
+            Nombre
+            <input
+              type="text"
+              id="input-nombre"
+              placeholder="Ej: Ana Pérez"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            Curso
+            <input
+              type="text"
+              id="input-curso"
+              placeholder="Ej: 1°A"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            Nota inicial
+            <input
+              type="number"
+              id="input-nota"
+              min="0"
+              max="10"
+              step="0.1"
+              placeholder="0 a 10"
+            />
+          </label>
+          <button type="button" id="btn-agregar">+ Agregar</button>
+        </div>
+        <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="resumen" aria-label="Resumen del grupo">
+        <article class="dato">
+          <p>Alumnos</p>
+          <strong id="total-alumnos">0</strong>
+        </article>
+        <article class="dato">
+          <p>Promedio general</p>
+          <strong id="promedio-general">0.00</strong>
+        </article>
+        <article class="dato dato-alerta">
+          <p>Desaprobados</p>
+          <strong id="total-desaprobados">0</strong>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="titulo-listado">
+        <div class="barra-lista">
+          <div class="barra-titulo">
+            <h2 id="titulo-listado">Listado</h2>
+            <button type="button" id="btn-vaciar" class="btn-vaciar">
+              Vaciar listado
+            </button>
+          </div>
+          <label class="busqueda">
+            Buscar por nombre
+            <input
+              type="search"
+              id="input-busqueda"
+              placeholder="Escribí y el listado se filtra"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+        <div id="filtros-curso" class="filtros"></div>
+        <div id="contenedor-alumnos" class="listado"></div>
+      </section>
+    </main>
+  </body>
+</html>
